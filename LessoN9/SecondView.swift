@@ -33,6 +33,8 @@ class SecondViewController: UIViewController {
     }
     @IBAction func moveRightButton(_ sender: UIButton) {
         buttonContraint.constant = 0
+        slider.value = 0
+        myLabel.text = String(format: "%0.2f", slider.value)
     }
     @IBAction func backToMenu() {
     }
