@@ -10,18 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBAction func switchAction(_ sender: Any) {
-        switchWork()
-    }
+    
     @IBOutlet weak var switchTurn: UISwitch!
     @IBOutlet weak var myLabel: UILabel!
     @IBOutlet weak var myButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        assignbackground()
+        switchWork()
+    }
     
     func switchWork() {
         
         myButton.isHidden = !switchTurn.isOn
         myLabel.text = switchTurn.isOn ? "Switch OFF" : "Switch ON"
         
+    }
+    
+    @IBAction func switchAction(_ sender: Any) {
+        switchWork()
     }
     
     func assignbackground(){
@@ -37,11 +45,6 @@ class ViewController: UIViewController {
         self.view.sendSubview(toBack: imageView)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        assignbackground()
-        switchWork()
-        
-    }
+    
 }
 

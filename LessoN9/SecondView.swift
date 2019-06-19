@@ -15,6 +15,20 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var rightButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImage.image = UIImage(named: "iPhone-7-internal-wallpaper")
+        self.view.insertSubview(backgroundImage, at: 0)
+    }
+    
+    func hideSlider () {
+        slider.isHidden = true
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in
+            self.slider.isHidden = false
+        })
+    }
+    
     @IBAction func hidden(_ sender: Any) {
         hideSlider()
     }
@@ -30,24 +44,5 @@ class SecondViewController: UIViewController {
     @IBAction func backToMenu() {
     }
     
-    
-    
-    func hideSlider () {
-        slider.isHidden = true
-        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { _ in
-            self.slider.isHidden = false
-        })
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
-        backgroundImage.image = UIImage(named: "iPhone-7-internal-wallpaper")
-        self.view.insertSubview(backgroundImage, at: 0)
-        
-    }
-    
-    
-  
     
 }
